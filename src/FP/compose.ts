@@ -7,7 +7,7 @@ export const c = <T>(x :T):string => `c(${x})`
 export const compose = <T>(...functions : readonly Function[]) : Function => {
     return (initVal : T): (T) => T => {
         const deepCopiedFunctions = [...functions]
-        return deepCopiedFunctions.reduce((result, func) => func(result), initVal)
+        return deepCopiedFunctions.reverse().reduce((result, func) => func(result), initVal)
     }
 }
 
